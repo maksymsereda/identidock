@@ -1,11 +1,10 @@
 identidock:
-  build: .
+  image: msereda/identidock:newest
   ports:
     - "5000:5000"
+    - "9000:9000"
   environment:
     ENV: DEV
-  volumes:
-    - ./app:/app
   links:
     - dnmonster
     - redis

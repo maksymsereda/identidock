@@ -1,0 +1,24 @@
+proxy:
+  image: msereda/proxy:newest
+  links:
+    - identidock
+  container_name: proxy  
+  ports:
+    - "80:80"
+  environment:
+    - NGINX_HOST=192.168.0.11
+    - NGINX_PROXY=http://identidock:9090
+identidock:
+  image: msereda/identidock:newest
+  links:
+    - dnmonster
+    - redis
+  environment:
+    ENV: PROD
+  container_name: identidock  
+dnmonster:
+  image: amouat/dnmonster
+  container_name: dnmonster
+redis:
+  image: redis
+  container_name: redis

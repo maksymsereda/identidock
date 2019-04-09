@@ -1,0 +1,8 @@
+identidock:
+  image: msereda/identidock:1.0
+  environment:
+    ENV: DEV
+dnmonster:
+  image: amouat/dnmonster
+redis:
+  image: redis
